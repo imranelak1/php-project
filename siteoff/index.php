@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,21 +20,19 @@
         <?php
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        
-       
+
         require_once "database.php";
 
         $error = array();
         $success = "";
 
-        
+        // Registration process
         if (isset($_POST["register"])) {
             $fullname = $_POST["fullname"];
             $email = $_POST["email"];
             $password = $_POST["password"];
             $repeat_password = $_POST["repeat_password"];
 
-            
             if (empty($fullname) || empty($email) || empty($password) || empty($repeat_password)) {
                 array_push($error, "Please fill in all fields");
             }
@@ -38,7 +40,6 @@
                 array_push($error, "Passwords do not match");
             }
 
-           
             if (count($error) === 0) {
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)";
@@ -50,19 +51,19 @@
                         $success = "Registration successful! You can now log in.";
                     } else {
                         array_push($error, "Error during registration");
-                     }
+                    }
                 } else {
                     array_push($error, "SQL error");
                 }
             }
         }
 
-        
+        // Login process
         if (isset($_POST["login"])) {
             $username = $_POST["username"];
             $password = $_POST["password"];
 
-            $sql = "SELECT * FROM users WHERE email = ?";
+            $sql = "SELECT * FROM users WHERE fullname = ?";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -72,9 +73,10 @@
 
                 if ($row = mysqli_fetch_assoc($result)) {
                     if (password_verify($password, $row['password'])) {
-                        $success = "Login successful!";
-                        header("Location: home.html");
-                exit();
+                        // Save username in the session and redirect
+                        $_SESSION['username'] = $username;
+                        header("Location: home.php");
+                        exit();
                     } else {
                         array_push($error, "Incorrect password");
                     }
@@ -96,7 +98,7 @@
             </div>
         <?php endif; ?>
 
-        
+        <!-- Display success message -->
         <?php if ($success): ?>
             <div class="success-message">
                 <p style="color:green;"><?php echo $success; ?></p>
@@ -105,7 +107,7 @@
 
         <form class="register-form" method="POST" action="">
             <h2>Register</h2>
-            <input type="text" name="fullname" placeholder="Full Name *" required />
+            <input type="text" name="fullname" placeholder="username *" required />
             <input type="email" name="email" placeholder="Email *" required />
             <input type="password" name="password" placeholder="Password *" required />
             <input type="password" name="repeat_password" placeholder="Repeat Password *" required />
@@ -113,9 +115,9 @@
             <p class="message">Already registered? <a href="#" class="toggle-form">Sign In</a></p>
         </form>
 
-        <form class="login-form" method="POST" action="home.html" >
+        <form class="login-form" method="POST" action="">
             <h2>Login</h2>
-            <input type="text" name="username" placeholder="Email" required />
+            <input type="text" name="username" placeholder="username" required />
             <input type="password" name="password" placeholder="Password" required />
             <button type="submit" name="login">Login</button>
             <p class="message">Not registered? <a href="#" class="toggle-form">Create an account</a></p>
