@@ -1,0 +1,87 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar styling */
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 40px 0;
+    text-align: left;
+}
+
+/* Footer layout */
+footer .up {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer .down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+footer .col-3 {
+    flex: 1 1 200px;
+    max-width: 250px;
+    margin: 10px;
+}
+
+footer .col-3 a {
+    display: block;
+    color: #ddd;
+    margin-bottom: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+footer .col-3 a.title {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Hover effect for links */
+footer .col-3 a:hover {
+    color: #ffc107;
+}
+
+/* Navbar collapse button (for older Bootstrap versions) */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Search form in Navbar */
+.navbar .form-inline input {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    footer .down {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar .navbar-brand, 
+    .navbar-nav .nav-item {
+        text-align: center;
+    }
+}
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Adjust the spacing as needed */
+}
