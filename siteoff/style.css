@@ -1,0 +1,262 @@
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+/* Base styles */
+body {
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Karla', sans-serif;
+}
+
+/* Header styling */
+header {
+    width: 70%;
+    margin: 0 auto;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo alignment */
+.logo {
+    margin-right: auto;
+}
+
+/* Navbar menu styling */
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Left-aligned menu items */
+.menu li {
+    margin: 0 15px;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: darkgray;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.menu li a:hover {
+    color: black;
+    font-weight: 600;
+}
+
+/* Right-aligned user info */
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 20px;
+    font-weight: 500;
+    color: darkgray;
+}
+
+/* Logout button styling */
+.nav-right a {
+    color: darkgray;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-right a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+/* Header button styling */
+.header-btn {
+    padding: 10px 20px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.header-btn a {
+    color: black;
+}
+
+.header-btn:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.header-btn:hover > a {
+    color: white;
+}
+
+/* Main content styling */
+.content {
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+/* Other styles for layout and consistency */
+.content::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    content: "";
+    height: 550px;
+    width: 100%;
+    background-color: hsl(256, 26%, 20%);
+}
+
+.content .center {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 500px;
+}
+
+.center .content-text {
+    width: 60%;
+}
+
+.center .content-text h1, 
+.center .content-text p {
+    font-family: 'Karla', sans-serif;
+    color: rgb(243, 243, 243);
+}
+
+.center .content-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    font-weight: 100;
+    line-height: 90%;
+}
+
+.center .content-text p {
+    font-size: 0.9em;
+    margin-top: 30px;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Content button styling */
+.content .content-text .content-btn {
+    padding: 10px 20px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid white;
+    transition: 0.3s;
+}
+
+.content .content-text .content-btn:hover {
+    background-color: white;
+    color: hsl(256, 26%, 20%);
+}
+
+/* Additional general styling for the rest of the content */
+.second-content {
+    width: 70%;
+    margin: 100px auto 120px;
+}
+
+.second-content .introduce {
+    display: flex;
+    margin-top: 60px;
+}
+
+.second-content .col-4 {
+    width: 30%;
+    margin-right: 3%;
+}
+
+.second-content .introduce .title {
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.second-content .introduce .short-info {
+    color: rgb(163, 163, 163);
+}
+
+/* Banner styling */
+.second-content .banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 270px;
+    margin-top: 70px;
+    background-color: hsl(256, 26%, 20%);
+    position: relative;
+}
+
+.second-content .banner h1 {
+    width: 50%;
+    font-size: 3.5rem;
+    color: white;
+}
+
+.second-content .banner a {
+    padding: 10px 20px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.second-content .banner a:hover {
+    background-color: white;
+    color: hsl(256, 26%, 20%);
+}
+
+/* Footer styling */
+footer {
+    width: 100%;
+    background-color: rgb(245, 244, 244);
+    padding: 30px 0;
+}
+
+footer .down {
+    width: 70%;
+    margin: 60px auto 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .down .col-3 a {
+    display: block;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+}
+
+footer .down .col-3 a:hover {
+    border-bottom: 2px solid black;
+}
+
+/* Style for the welcome message */
+.welcome-message {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4d3084; /* deep purple */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    margin-right: 20px;
+}

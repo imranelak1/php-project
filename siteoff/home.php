@@ -3,67 +3,85 @@ session_start();
 if (!isset($_SESSION['username'])) {
   $_SESSION['username'] = $username; 
 
-    header("Location: index.php");
+    header("Location: login.php");
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+<header>
+    <img class="logo" src="images/logo1.png" alt="" width="100px" height="50px">
+    
+    <ul class="menu">
+        <li><a href="aboutus.html">About us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li class="header-btn"><a href="plans.html">View plans</a></li>
 
-            <!-- Display the username and Logout button -->
-            <span class="navbar-text ml-auto">
-                <?php echo "Welcome, " . htmlspecialchars($_SESSION['username']); ?>
-            </span>
-            <a href="logout.php" class="btn btn-outline-danger ml-2">Logout</a>
+        <!-- Right-aligned items -->
+        <div class="nav-right">
+        <li class="welcome-message"><?php echo "Welcome, " . htmlspecialchars($_SESSION['username']); ?></li>
 
-            <form class="form-inline my-2 my-lg-0 ml-2">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <li><a href="logout.php">Logout</a></li>
         </div>
-    </nav>
+    </ul>
+</header>
+    
+    <div class="content">
+        
+        <div class="center">
+            <div class="content-text">
+                <h1>Humanizing </h1>
+                <h1>your insurance.</h1>
+                <p>Get your life insurance coverage easier and gaster. We blend our expertise and technology to help you find the plan that's right for you. Ensure you and your loved ones are protected</p>
+                <a href="plans.html" class="content-btn">view plans</a>
+            </div>
+            
+       
+        <img src="images/human.jpeg" alt="">
+        
+    </div>
+    <div class="second-content">
+        <h1>We're different</h1>
+        <div class="introduce">
+            <div class="col-4">
+                <img src="images/process.png" alt="">
+                <h4 class="title">Snappy Process</h4>
+                <p class="short-info">
+                    Our appilication process can be completed in minutes, not hours. Don't get stuck filling in tedious forms
+                </p>
+            </div>
+            <div class="col-4">
+                <img src="images/prices.jpeg" alt="">
+                <h4 class="title">Affordable Prices</h4>
+                <p class="short-info">We don't want you worrying about high monthly costs. Our prices may be low, but we still offer the best coverage possible.</p>
+            </div>
+            <div class="col-4">
+                <img src="images/people.png" alt="">
+                <h4 class="title">People First</h4>
+                <p class="short-info">Our plans aren't full of conditions and clauses to prevent payouts. We make sure you're covered when you need it</p>
 
+            </div>
+        </div>
+        <div class="banner">
+            <img src="images/how we work.jpeg"  class ="desktop" alt="">
+            
+            <h1>Find our more about how we work</h1>
+            <a href="aboutus.html">How we work</a>
+
+        </div>
+    </div>
     <footer>
-        <div class="up"></div>
+       
+        <div class="up">
+            
+        </div>
         <div class="down">
             <div class="col-3">
                 <a href="#" class="title">our company</a>
@@ -73,14 +91,16 @@ if (!isset($_SESSION['username'])) {
                 <a href="#">reviews</a>
             </div>
             <div class="col-3">
-                <a href="#" class="title">help me</a>
-                <a href="#">faq</a>
-                <a href="#">terms of use</a>
-                <a href="#">privacy policy</a>
+                <a href ="#" class="title">help me</a>
+                <a href ="#" >faq</a>
+                <a href ="#" >terms of use</a>
+                <a href ="#" >privacy policy</a>
+                
             </div>
+           
+            
         </div>
+        <script src="index.js"></script>
     </footer>
-
-    
 </body>
 </html>
