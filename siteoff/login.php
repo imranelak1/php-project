@@ -81,7 +81,7 @@ session_start();
                         array_push($error, "Incorrect password");
                     }
                 } else {
-                    array_push($error, "No user found with this usernane");
+                    array_push($error, "No user found with this username");
                 }
             } else {
                 array_push($error, "SQL error");
