@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +19,7 @@ session_start();
     <div class="form">
 
         <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+       
 
         require_once "database.php";
 
@@ -81,7 +81,7 @@ session_start();
                         array_push($error, "Incorrect password");
                     }
                 } else {
-                    array_push($error, "No user found with this email");
+                    array_push($error, "No user found with this usernane");
                 }
             } else {
                 array_push($error, "SQL error");
@@ -89,7 +89,7 @@ session_start();
         }
         ?>
 
-        <!-- Display error messages -->
+        
         <?php if (!empty($error)): ?>
             <div class="error-messages">
                 <?php foreach ($error as $err): ?>
@@ -111,7 +111,11 @@ session_start();
             <input type="email" name="email" placeholder="Email *" required />
             <input type="password" name="password" placeholder="Password *" required />
             <input type="password" name="repeat_password" placeholder="Repeat Password *" required />
+            
             <button type="submit" name="register">Create</button>
+            <?php  if (isset($_SESSION['error']))
+            
+            ?>
             <p class="message">Already registered? <a href="#" class="toggle-form">Sign In</a></p>
         </form>
 
